@@ -17,11 +17,13 @@ function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [recipesOriginal, setRecipesOriginal] = useState([]);
   const [categoryFilters, setCategoryFilters] = useState([]);
+  const [toggleCategoryFilter, setToggleCategoryFilter] = useState({});
 
   useEffect(() => {
     const getData = async () => {
       let data = {};
       let categorys = [];
+
       if (pathname === '/foods') {
         data = await fetchFoods();
         categorys = await fetchFoodCategorys();
@@ -41,14 +43,21 @@ function Recipes() {
   }, []);
 
   const handleFilter = async ({ target: { name } }) => {
+    if (toggleCategoryFilter[name]) {
+      setToggleCategoryFilter({ [name]: false });
+      setRecipes(recipesOriginal);
+      return;
+    }
     let data = [];
     if (pathname === '/foods') {
       data = await fetchFoodFilter(name);
       setRecipes(data);
+      setToggleCategoryFilter({ [name]: true });
     }
     if (pathname === '/drinks') {
       data = await fetchDrinkFilter(name);
       setRecipes(data);
+      setToggleCategoryFilter({ [name]: true });
     }
   };
 
