@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Recipes from '../components/Recipes';
 import RecipesCard from '../components/RecipesCard';
 import SearchBar from '../components/SearchBar';
 
@@ -15,6 +16,7 @@ function Drinks() {
       <Header title="Drinks" />
       <Container>
         { showBar.show && <SearchBar />}
+        { !drinksSearch && <Recipes />}
         { drinksSearch && <RecipesCard recipes={ drinksSearch } />}
       </Container>
       <Footer />

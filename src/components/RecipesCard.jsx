@@ -15,8 +15,12 @@ function RecipesCard(props) {
 
   return (
     <>
-      { recipes.slice(0, maxRecipes).map((recipe, index) => (
-        <Card data-testid={ `${index}-recipe-card` } key={ recipe[`id${type}`] }>
+      {recipes.slice(0, maxRecipes).map((recipe, index) => (
+        <Card
+          data-testid={ `${index}-recipe-card` }
+          key={ recipe[`id${type}`] }
+          className="mb-5"
+        >
           <Card.Img
             data-testid={ `${index}-card-img` }
             variant="top"
@@ -34,9 +38,7 @@ function RecipesCard(props) {
 }
 
 RecipesCard.propTypes = {
-  recipes: PropTypes.shape({
-    slice: PropTypes.func,
-  }).isRequired,
+  recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default RecipesCard;
