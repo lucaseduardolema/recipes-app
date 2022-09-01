@@ -15,7 +15,7 @@ function Header(props) {
   } = history;
 
   return (
-    <nav className="navbar bg-warning">
+    <nav className="navbar bg-warning mb-2">
       <input
         data-testid="profile-top-btn"
         type="image"
