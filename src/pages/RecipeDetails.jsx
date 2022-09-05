@@ -6,6 +6,7 @@ import fetchDrinkId from '../services/fetchDrinkID';
 import fetchDrinks from '../services/fetchDrinks';
 import fetchFoodId from '../services/fetchFoodId';
 import fetchFoods from '../services/fetchFoods';
+import '../styles/RecipeDetails.css';
 
 function RecipeDetails() {
   const { id } = useParams();
@@ -158,18 +159,21 @@ function RecipeDetails() {
             {recipe.strYoutube && (
               <Card.Body>
                 <Card.Title>Video</Card.Title>
-                <iframe
-                  data-testid="video"
-                  src={ `https://www.youtube.com/embed/${url}` }
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer;
-                  autoplay; clipboard-write;
-                  encrypted-media;
-                  gyroscope;
-                  picture-in-picture"
-                  allowFullScreen
-                />
+                <div className="iframe-container">
+                  <iframe
+                    data-testid="video"
+                    src={ `https://www.youtube.com/embed/${url}` }
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer;
+                    autoplay; clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture"
+                    allowFullScreen
+                    className="responsive-iframe"
+                  />
+                </div>
               </Card.Body>
             )}
 
