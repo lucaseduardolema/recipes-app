@@ -63,14 +63,12 @@ function RecipeDetails() {
       }
     };
     getData();
-  }, []);
+  }, []); // eslint-disable-line
 
   useEffect(() => {
     const dones = JSON.parse(localStorage.getItem('doneRecipes') || '[]');
     const inCurrent = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const hasDone = dones.some((recipe) => recipe.id === id);
-
-    console.log(inCurrent);
 
     if (pathname.includes('/foods') && inCurrent !== null && inCurrent !== undefined) {
       const hasCurrent = Object.keys(inCurrent.meals).includes(id);
@@ -83,7 +81,7 @@ function RecipeDetails() {
     }
 
     setHasDoneRecipe(hasDone);
-  }, []);
+  }, []); // eslint-disable-line
 
   useEffect(() => {
     const recipe = recipeDetail;
@@ -101,12 +99,10 @@ function RecipeDetails() {
       }
     }
     setFilteredKeys(filteredI);
-  }, [ingredientsKeys]);
+  }, [ingredientsKeys]); // eslint-disable-line
 
-  const handleButton = ({ target: { name } }) => {
-    if (name === 'start') {
-      history.push(`${pathname}/in-progress`);
-    }
+  const handleButton = () => {
+    history.push(`${pathname}/in-progress`);
   };
 
   return (

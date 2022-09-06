@@ -17,6 +17,7 @@ function ShareFavButtons({ recipe }) {
   } = history;
 
   const type = pathname.includes('/foods') ? 'Meal' : 'Drink';
+  const typeAddress = pathname.includes('/foods') ? '/foods' : '/drinks';
 
   const favToSave = {
     id: recipe[0][`id${type}`],
@@ -34,12 +35,12 @@ function ShareFavButtons({ recipe }) {
     );
     const has = favoriteRecipes.some((favRecipe) => favRecipe.id === id);
     setHasFav(has);
-  }, []);
+  }, []); // eslint-disable-line
 
   const handleShare = () => {
-    const host = window.location.href;
+    const host = window.location.origin;
     setLinkCopied(true);
-    clipboardCopy(host);
+    clipboardCopy(`${host}${typeAddress}/${id}`);
   };
 
   const handleFavorites = () => {
