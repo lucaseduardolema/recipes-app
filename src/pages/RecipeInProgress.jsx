@@ -17,7 +17,10 @@ function RecipeInProgress() {
   const [filteredKeys, setFilteredKeys] = useState([]);
   const [measureKeys, setMeasureKeys] = useState([]);
   const [inProgress, setInProgress] = useState([]);
+  const [finish, setFinish] = useState(true);
+  const [forceRender, setForceRender] = useState('');
 
+  console.log(forceRender);
   const type = pathname.includes('/foods') ? 'Meal' : 'Drink';
   const typeInProgress = pathname.includes('/foods') ? 'meals' : 'cocktails';
 
@@ -78,6 +81,14 @@ function RecipeInProgress() {
     }
   }, []);
 
+  // eslint-disable-next-line
+  useEffect(() => {
+    const checks = document.querySelectorAll('input[type=checkbox]');
+    const checkeds = document.querySelectorAll('input[type=checkbox]:checked');
+    const finished = checks.length === checkeds.length;
+    setFinish(!finished);
+  });
+
   const handleIngredientStep = ({ target }) => {
     const label = document.getElementById(target.id).nextSibling;
     const strike = document.createElement('strike');
@@ -110,6 +121,26 @@ function RecipeInProgress() {
     label.innerText = '';
     strike.innerText = text;
     label.appendChild(strike);
+    setForceRender(target.name);
+  };
+
+  const handleFinish = () => {
+    const date = new Date().toLocaleDateString();
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes') || '[]');
+    localStorage.setItem('doneRecipes', JSON.stringify([
+      ...doneRecipes,
+      {
+        id,
+        type: pathname.includes('/foods') ? 'food' : 'drink',
+        nationality: recipeInProgress[0].strArea ? recipeInProgress[0].strArea : '',
+        category: recipeInProgress[0].strCategory,
+        alcoholicOrNot: pathname.includes('/foods') ? '' : 'Alcoholic',
+        name: recipeInProgress[0][`str${type}`],
+        image: recipeInProgress[0][`str${type}Thumb`],
+        doneDate: date,
+        tags: pathname.includes('/foods') ? recipeInProgress[0].strTags : [],
+      }]));
+    history.push('/done-recipes');
   };
 
   return (
@@ -188,6 +219,8 @@ function RecipeInProgress() {
         <Button
           style={ { position: 'fixed' } }
           data-testid="finish-recipe-btn"
+          disabled={ finish }
+          onClick={ handleFinish }
         >
           Finish Recipe
         </Button>
