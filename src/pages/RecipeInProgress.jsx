@@ -131,14 +131,14 @@ function RecipeInProgress() {
       ...doneRecipes,
       {
         id,
-        type: pathname.includes('/foods') ? 'food' : 'drink',
+        type: pathname.includes('/foods') ? 'foods' : 'drinks',
         nationality: recipeInProgress[0].strArea ? recipeInProgress[0].strArea : '',
         category: recipeInProgress[0].strCategory,
         alcoholicOrNot: pathname.includes('/foods') ? '' : 'Alcoholic',
         name: recipeInProgress[0][`str${type}`],
         image: recipeInProgress[0][`str${type}Thumb`],
         doneDate: date,
-        tags: pathname.includes('/foods') ? recipeInProgress[0].strTags : [],
+        tags: pathname.includes('/foods') ? recipeInProgress[0].strTags.split(',') : [],
       }]));
     history.push('/done-recipes');
   };
