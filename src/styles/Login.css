@@ -1,0 +1,8 @@
+.login-page {
+  background-image: url('../images/loginPage.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 20px;
+  font-weight: 800;
+  height: 100vh;
+}

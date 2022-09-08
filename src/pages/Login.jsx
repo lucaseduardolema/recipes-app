@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Container, Form, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import '../styles/Login.css';
 
 function Login() {
   const history = useHistory();
@@ -25,10 +26,19 @@ function Login() {
   };
 
   return (
-    <Container>
-      <Row>
+    <Container fluid className="login-page">
+      <Row
+        className="
+        d-flex
+        justify-content-center
+        flex-column
+        align-items-center"
+      >
         <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group
+            className="my-5"
+            controlId="formBasicEmail"
+          >
             <Form.Label>Email</Form.Label>
             <Form.Control
               data-testid="email-input"
@@ -42,7 +52,7 @@ function Login() {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="my-5" controlId="formBasicPassword">
             <Form.Label>Senha</Form.Label>
             <Form.Control
               data-testid="password-input"
@@ -53,15 +63,24 @@ function Login() {
             />
           </Form.Group>
 
-          <Button
-            data-testid="login-submit-btn"
-            variant="primary"
-            type="button"
-            disabled={ !validUser() }
-            onClick={ handleSubmit }
+          <div
+            className="
+            d-flex
+            justify-content-center
+            flex-column
+            align-items-center"
           >
-            Logar
-          </Button>
+            <Button
+              data-testid="login-submit-btn"
+              variant="success"
+              type="button"
+              disabled={ !validUser() }
+              onClick={ handleSubmit }
+            >
+              Logar
+            </Button>
+          </div>
+
         </Form>
       </Row>
     </Container>
