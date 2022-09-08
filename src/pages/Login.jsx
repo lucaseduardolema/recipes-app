@@ -22,7 +22,7 @@ function Login() {
     localStorage.setItem('user', JSON.stringify({ email: userEmail }));
     localStorage.setItem('mealsToken', JSON.stringify(1));
     localStorage.setItem('cocktailsToken', JSON.stringify(1));
-    history.push('/foods');
+    history.push('/recipes-app/foods');
   };
 
   return (

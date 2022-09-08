@@ -13,7 +13,7 @@ function Footer() {
         type="image"
         src={ drinkIcon }
         alt="drinkIcon"
-        onClick={ () => history.push('/drinks') }
+        onClick={ () => history.push('/recipes-app/drinks') }
       />
 
       <input
@@ -21,7 +21,7 @@ function Footer() {
         type="image"
         src={ mealIcon }
         alt="mealIcon"
-        onClick={ () => history.push('/foods') }
+        onClick={ () => history.push('/recipes-app/foods') }
       />
     </nav>
   );

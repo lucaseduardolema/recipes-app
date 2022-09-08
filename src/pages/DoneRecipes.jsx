@@ -19,7 +19,7 @@ function DoneRecipes() {
   const handleShare = ({ target: { name, id } }) => {
     const host = window.location.origin;
     setLinkCopied(true);
-    clipboardCopy(`${host}/${name}/${id}`);
+    clipboardCopy(`${host}/recipes-app/${name}/${id}`);
   };
 
   const handleFoodsFilter = () => {

@@ -21,12 +21,12 @@ function Header(props) {
         type="image"
         src={ profileIcon }
         alt="Profile Icon"
-        onClick={ () => history.push('/profile') }
+        onClick={ () => history.push('/recipes-app/profile') }
       />
 
       <span data-testid="page-title">{title}</span>
 
-      {pathname === '/foods' || pathname === '/drinks' ? (
+      {pathname.includes('/foods') || pathname.includes('/drinks') ? (
         <input
           data-testid="search-top-btn"
           type="image"

@@ -33,7 +33,7 @@ function FavoriteRecipes() {
   const handleShare = ({ target: { name, id } }) => {
     const host = window.location.origin;
     setLinkCopied(true);
-    clipboardCopy(`${host}/${name}s/${id}`);
+    clipboardCopy(`${host}/recipes-app/${name}s/${id}`);
   };
 
   const handleFavorites = ({ target: { id } }) => {

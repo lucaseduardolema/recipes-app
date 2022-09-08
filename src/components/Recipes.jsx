@@ -24,14 +24,14 @@ function Recipes() {
       let data = {};
       let categorys = [];
 
-      if (pathname === '/foods') {
+      if (pathname.includes('/foods')) {
         data = await fetchFoods();
         categorys = await fetchFoodCategorys();
         setCategoryFilters(categorys);
         setRecipesOriginal(data.meals);
         setRecipes(data.meals);
       }
-      if (pathname === '/drinks') {
+      if (pathname.includes('/drinks')) {
         data = await fetchDrinks();
         categorys = await fetchDrinkCategorys();
         setCategoryFilters(categorys);
@@ -40,7 +40,7 @@ function Recipes() {
       }
     };
     getData();
-  }, []);
+  }, []); // eslint-disable-line
 
   const handleFilter = async ({ target: { name } }) => {
     if (toggleCategoryFilter[name]) {
@@ -49,12 +49,12 @@ function Recipes() {
       return;
     }
     let data = [];
-    if (pathname === '/foods') {
+    if (pathname.includes('/foods')) {
       data = await fetchFoodFilter(name);
       setRecipes(data);
       setToggleCategoryFilter({ [name]: true });
     }
-    if (pathname === '/drinks') {
+    if (pathname.includes('/drinks')) {
       data = await fetchDrinkFilter(name);
       setRecipes(data);
       setToggleCategoryFilter({ [name]: true });

@@ -11,7 +11,7 @@ function RecipesCard(props) {
     location: { pathname },
   } = history;
   const { recipes } = props;
-  const type = pathname === '/foods' ? 'Meal' : 'Drink';
+  const type = pathname.includes('/foods') ? 'Meal' : 'Drink';
 
   return (
     <div

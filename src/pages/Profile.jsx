@@ -15,7 +15,7 @@ function Profile() {
 
   const handleLogout = () => {
     localStorage.clear();
-    history.push('/');
+    history.push('/recipes-app');
   };
 
   return (
@@ -41,7 +41,7 @@ function Profile() {
           >
             <Button
               data-testid="profile-done-btn"
-              onClick={ () => history.push('/done-recipes') }
+              onClick={ () => history.push('/recipes-app/done-recipes') }
               size="lg"
               className="my-4"
             >
@@ -50,7 +50,7 @@ function Profile() {
 
             <Button
               data-testid="profile-favorite-btn"
-              onClick={ () => history.push('/favorite-recipes') }
+              onClick={ () => history.push('/recipes-app/favorite-recipes') }
               size="lg"
               className="my-4"
             >

@@ -40,7 +40,7 @@ function ShareFavButtons({ recipe }) {
   const handleShare = () => {
     const host = window.location.origin;
     setLinkCopied(true);
-    clipboardCopy(`${host}${typeAddress}/${id}`);
+    clipboardCopy(`${host}/recipes-app${typeAddress}/${id}`);
   };
 
   const handleFavorites = () => {

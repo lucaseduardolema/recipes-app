@@ -140,7 +140,7 @@ function RecipeInProgress() {
         doneDate: date,
         tags: pathname.includes('/foods') ? recipeInProgress[0].strTags.split(',') : [],
       }]));
-    history.push('/done-recipes');
+    history.push('/recipes-app/done-recipes');
   };
 
   return (
