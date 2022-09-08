@@ -111,7 +111,7 @@ function SearchBar() {
           data-testid="exec-search-btn"
           variant="success"
           size="sm"
-          onClick={ pathname === '/foods' ? handleSearchFoods : handleSearchDrinks }
+          onClick={ pathname.includes('/foods') ? handleSearchFoods : handleSearchDrinks }
         >
           Search
         </Button>
