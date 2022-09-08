@@ -22,29 +22,51 @@ function Profile() {
     <>
       <Header title="Profile" />
       <Container>
-        <h2 data-testid="profile-email">{userInfo?.email || 'Visitante'}</h2>
-        <div className="buttons">
-          <Button
-            data-testid="profile-done-btn"
-            onClick={ () => history.push('/done-recipes') }
-            size="lg"
+        <div
+          className="
+          d-flex
+          justify-content-center
+          flex-column
+          align-items-center
+          my-5"
+        >
+          <h2 data-testid="profile-email">{userInfo?.email || 'Visitante'}</h2>
+          <div
+            className="
+            buttons d-flex
+            justify-content-center
+            align-items-center
+            flex-column
+            my-4"
           >
-            Done Recipes
-          </Button>
-          <Button
-            data-testid="profile-favorite-btn"
-            onClick={ () => history.push('/favorite-recipes') }
-            size="lg"
-          >
-            Favorite Recipes
-          </Button>
-          <Button
-            data-testid="profile-logout-btn"
-            size="lg"
-            onClick={ handleLogout }
-          >
-            Logout
-          </Button>
+            <Button
+              data-testid="profile-done-btn"
+              onClick={ () => history.push('/done-recipes') }
+              size="lg"
+              className="my-4"
+            >
+              Done Recipes
+            </Button>
+
+            <Button
+              data-testid="profile-favorite-btn"
+              onClick={ () => history.push('/favorite-recipes') }
+              size="lg"
+              className="my-4"
+            >
+              Favorite Recipes
+            </Button>
+
+            <Button
+              data-testid="profile-logout-btn"
+              size="lg"
+              onClick={ handleLogout }
+              className="my-4"
+              variant="danger"
+            >
+              Logout
+            </Button>
+          </div>
         </div>
       </Container>
       <Footer />
