@@ -34,6 +34,7 @@ function Login() {
         flex-column
         align-items-center"
       >
+        <div className="login">
         <Form>
           <Form.Group
             className="my-5"
@@ -80,8 +81,8 @@ function Login() {
               Logar
             </Button>
           </div>
-
         </Form>
+        </div>
       </Row>
     </Container>
   );
