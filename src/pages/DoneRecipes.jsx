@@ -35,7 +35,14 @@ function DoneRecipes() {
   return (
     <>
       <Header title="Done Recipes" />
-      <Container>
+      <Container
+        className="
+        d-flex
+        justify-content-center
+        flex-column
+        align-items-center
+        my-5"
+      >
         <div className="mb-3 d-flex justify-content-around">
           <Button data-testid="filter-by-all-btn" onClick={ () => setDones(all) }>
             All

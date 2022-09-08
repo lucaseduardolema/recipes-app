@@ -14,7 +14,14 @@ function RecipesCard(props) {
   const type = pathname === '/foods' ? 'Meal' : 'Drink';
 
   return (
-    <>
+    <div
+      className="
+      d-flex
+      justify-content-center
+      flex-column
+      align-items-center
+      mb-5"
+    >
       {recipes.slice(0, maxRecipes).map((recipe, index) => (
         <Link
           key={ recipe[`id${type}`] }
@@ -34,7 +41,7 @@ function RecipesCard(props) {
           </Card>
         </Link>
       ))}
-    </>
+    </div>
   );
 }
 

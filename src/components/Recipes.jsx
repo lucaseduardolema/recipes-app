@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, ButtonGroup } from 'react-bootstrap';
+import { Button, ButtonGroup, Dropdown, DropdownButton } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import fetchDrinkCategorys from '../services/fetchDrinkCategorys';
 import fetchDrinkFilter from '../services/fetchDrinkFilter';
@@ -64,22 +64,31 @@ function Recipes() {
   const handleAll = async () => setRecipes(recipesOriginal);
 
   return (
-    <>
+    <div
+      className="
+      d-flex
+      justify-content-center
+      flex-column
+      align-items-center"
+    >
       <ButtonGroup size="sm" className="mb-3">
         <Button data-testid="All-category-filter" onClick={ handleAll }>All</Button>
-        {categoryFilters.map(({ strCategory }) => (
-          <Button
-            key={ strCategory }
-            data-testid={ `${strCategory}-category-filter` }
-            name={ strCategory }
-            onClick={ handleFilter }
-          >
-            {strCategory}
-          </Button>
-        ))}
+        <DropdownButton title="Categorys">
+          {categoryFilters.map(({ strCategory }) => (
+            <Dropdown.Item
+              key={ strCategory }
+              data-testid={ `${strCategory}-category-filter` }
+              name={ strCategory }
+              onClick={ handleFilter }
+            >
+              {strCategory}
+            </Dropdown.Item>
+          ))}
+
+        </DropdownButton>
       </ButtonGroup>
       {recipes && <RecipesCard recipes={ recipes } />}
-    </>
+    </div>
   );
 }
 

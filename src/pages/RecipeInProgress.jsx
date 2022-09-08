@@ -144,7 +144,14 @@ function RecipeInProgress() {
   };
 
   return (
-    <Container className="mb-5 mt-5">
+    <Container
+      className="
+      d-flex
+      justify-content-center
+      flex-column
+      align-items-center
+      my-5"
+    >
       {recipeInProgress
         && recipeInProgress.map((recipe) => (
           <Card key={ recipe[`id${type}`] }>
