@@ -33,7 +33,7 @@ function Profile() {
           <h2 data-testid="profile-email">{userInfo?.email || 'Visitante'}</h2>
           <div
             className="
-            buttons d-flex
+            d-flex
             justify-content-center
             align-items-center
             flex-column
